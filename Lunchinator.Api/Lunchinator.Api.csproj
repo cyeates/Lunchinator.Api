@@ -195,6 +195,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LunchesController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -263,6 +264,28 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Lunchinator.Data.Contracts\Lunchinator.Data.Contracts.csproj">
+      <Project>{e893578b-2298-4903-91ed-1ce12b5ad667}</Project>
+      <Name>Lunchinator.Data.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lunchinator.Domain.RecommendationEngine\Lunchinator.Domain.RecommendationEngine.csproj">
+      <Project>{d4add129-beea-4cfe-b526-01445c34f830}</Project>
+      <Name>Lunchinator.Domain.RecommendationEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lunchinator.Domain\Lunchinator.Domain.csproj">
+      <Project>{912c2dec-9f9f-4456-a9ac-3e0f443bffa9}</Project>
+      <Name>Lunchinator.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lunchinator.Model\Lunchinator.Data.Entities.csproj">
+      <Project>{15745bff-ac1c-4ce8-9ea6-0f2d9bd935d6}</Project>
+      <Name>Lunchinator.Data.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Luncinator.Data\Lunchinator.Data.csproj">
+      <Project>{be4845d5-4466-4171-9386-5715f9675d57}</Project>
+      <Name>Lunchinator.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
