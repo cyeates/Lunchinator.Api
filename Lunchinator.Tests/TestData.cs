@@ -41,7 +41,7 @@ namespace Lunchinator.Tests
                        {
                            new User
                                {
-                                   UserId=1,
+                                   UserId=new Guid(),
                                    FullName = "Lisa Rose",
                                    Ratings = new List<Rating>
                                                  {
@@ -56,7 +56,7 @@ namespace Lunchinator.Tests
                                },
                            new User()
                                {
-                                   UserId = 2,
+                                   UserId = new Guid(),
                                    FullName = "Gene Seymour",
                                    Ratings = new List<Rating>
                                                  {
@@ -70,7 +70,7 @@ namespace Lunchinator.Tests
                                },
                            new User
                                {
-                                   UserId = 3,
+                                   UserId = new Guid(),
                                    FullName = "Michael Phillips",
                                    Ratings = new List<Rating>
                                                  {
@@ -82,7 +82,7 @@ namespace Lunchinator.Tests
                                },
                         new User
                             {
-                                UserId = 4,
+                                UserId = new Guid(),
                                 FullName = "Claudia Puig",
                                 Ratings = new List<Rating>
                                               {
@@ -97,7 +97,7 @@ namespace Lunchinator.Tests
 
                          new User
                             {
-                                UserId = 5,
+                                UserId = new Guid(),
                                 FullName = "Mick LaSalle",
                                 Ratings = new List<Rating>
                                               {
@@ -112,7 +112,7 @@ namespace Lunchinator.Tests
                             },
                         new User
                             {
-                                UserId = 6,
+                                UserId = new Guid(),
                                 FullName = "Jack Matthews",
                                 Ratings = new List<Rating>
                                               {
@@ -127,7 +127,7 @@ namespace Lunchinator.Tests
                             },
                          new User
                              {
-                                 UserId = 7,
+                                 UserId = new Guid(),
                                  FullName = "Toby",
                                  Ratings = new List<Rating>
                                               {

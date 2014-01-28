@@ -9,17 +9,17 @@ using System.Data;
 
 namespace Lunchinator.Data
 {
-  public class EFRepository<T> : IRepository<T> where T : class
+  public class EfRepository<T> : IRepository<T> where T : class
   {
     private readonly DbContext _context;
     private DbSet<T> _set;
-    public EFRepository(DbContext context)
+    public EfRepository(DbContext context)
     {
       _context = context;
       _set = context.Set<T>();
     }
 
-    public T GetById(int id)
+    public T GetById(Guid id)
     {
       return _set.Find(id);
     }

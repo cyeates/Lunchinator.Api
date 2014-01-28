@@ -8,7 +8,7 @@ namespace Lunchinator.Data.Contracts
 {
   public interface IRepository<T> where T: class
   {
-    T GetById(int id);
+    T GetById(Guid id);
     IQueryable<T> GetAll();
     void Add(T entity);
     void Update(T entity);

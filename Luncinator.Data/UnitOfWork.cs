@@ -22,7 +22,7 @@ namespace Lunchinator.Data
     {
       get
       {
-        return new EFRepository<Lunch>(_context);
+        return new EfRepository<Lunch>(_context);
       }
     }
 
@@ -30,7 +30,7 @@ namespace Lunchinator.Data
     {
       get
       {
-        return new EFRepository<User>(_context);
+        return new EfRepository<User>(_context);
       }
     }
 

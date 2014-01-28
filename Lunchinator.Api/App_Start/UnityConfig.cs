@@ -1,4 +1,5 @@
 using Lunchinator.Data;
+using Lunchinator.Data.Contracts;
 using Lunchinator.Domain;
 using Lunchinator.Domain.BusinessApi;
 using Lunchinator.Domain.Services;
@@ -15,6 +16,7 @@ namespace Lunchinator.Api
       var container = new UnityContainer();
 
       container.RegisterType<LunchinatorContext, LunchinatorContext>();
+      container.RegisterType<IUnitOfWork, UnitOfWork>();
 
       //recommendation engine
       container.RegisterType<IGroupRecommendationAlgorithm, AverageOfRatings>();

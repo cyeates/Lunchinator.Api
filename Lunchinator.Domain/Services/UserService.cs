@@ -16,12 +16,12 @@ namespace Lunchinator.Domain.Services
           
         }
 
-        public User GetUser(int id)
+        public User GetUser(Guid id)
         {
           return _uow.Users.GetById(id);
         }
 
-        public void SaveRating(Rating rating, int userId)
+        public void SaveRating(Rating rating, Guid userId)
         {
            var user = _uow.Users.GetById(userId);
            var existingRating = user.Ratings.FirstOrDefault(r => r.BusinessId == rating.BusinessId);

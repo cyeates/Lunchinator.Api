@@ -32,29 +32,29 @@ namespace Lunchinator.Domain.BusinessApi
                                     LocationOptions = new LocationOptions { location = search.Location, coordinates = new CoordinateOptions { latitude = search.Latitude, longitude = search.Longitude} }
 
                                };
-           //var results =  _yelp.Search(options);
+            var results = _yelp.Search(options).Result;
 
-           //var lunchinatorBusinesses = new List<Business>();
-           //foreach (var business in results.businesses)
-           //{
-           //    var mapper = new YelpBusinessToLunchinatorBusinessMapper();
-           //    lunchinatorBusinesses.Add(mapper.Map(business));
-           //}
+            var lunchinatorBusinesses = new List<Business>();
+            foreach (var business in results.businesses)
+            {
+              var mapper = new YelpBusinessToLunchinatorBusinessMapper();
+              lunchinatorBusinesses.Add(mapper.Map(business));
+            }
 
-           // //yelp limits each request to 20 results, which doesn't seem like enough, so i'm going to request the 2nd page.  surely 40 is enough.
-           //if (results.total > 20)
-           //{
-           //    options.GeneralOptions.offset = 20;
-           //    var results2 = _yelp.Search(options);
-           //    foreach (var business in results2.businesses)
-           //    {
-           //        var mapper = new YelpBusinessToLunchinatorBusinessMapper();
-           //        lunchinatorBusinesses.Add(mapper.Map(business));
-           //    }
-           //}
+            //yelp limits each request to 20 results, which doesn't seem like enough, so i'm going to request the 2nd page.  surely 40 is enough.
+            if (results.total > 20)
+            {
+              options.GeneralOptions.offset = 20;
+              var results2 = _yelp.Search(options).Result;
+              foreach (var business in results2.businesses)
+              {
+                var mapper = new YelpBusinessToLunchinatorBusinessMapper();
+                lunchinatorBusinesses.Add(mapper.Map(business));
+              }
+            }
 
-          // return lunchinatorBusinesses.Randomize().Where(b => b.Rating >= 3.0).Take(10).ToList();
-          return null;
+            return lunchinatorBusinesses.Randomize().Where(b => b.Rating >= 3.0).Take(10).ToList();
+          
            
         }
     }
