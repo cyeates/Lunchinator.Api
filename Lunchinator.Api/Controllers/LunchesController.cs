@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using Lunchinator.Api.Models;
 using Lunchinator.Data.Entities;
 using Lunchinator.Domain;
@@ -9,6 +11,7 @@ using Lunchinator.Domain.Services;
 
 namespace Lunchinator.Api.Controllers
 {
+  [EnableCors("*", "*", "*")]
   public class LunchesController : ApiController
   {
     private readonly LunchService _lunchService;
@@ -18,7 +21,22 @@ namespace Lunchinator.Api.Controllers
       _lunchService = lunchService;
     }
 
-    [HttpPost]
+    [HttpGet]
+    public LunchModel Get(string id)
+    {
+      var lunch =  _lunchService.GetLunch(new Guid(id));
+      var users = new List<UserModel>();
+      lunch.Users.ForEach(u => users.Add(new UserModel {EmailAddress = u.EmailAddress}));
+      var model= new LunchModel
+      {
+        LunchId = lunch.LunchId.ToString(),
+        Users = users
+      };
+
+      return model;
+    }
+    
+      [HttpPost]
     public LunchModel Create(LunchModel model)
     {
       var lunch = new Lunch { Description = model.Description };

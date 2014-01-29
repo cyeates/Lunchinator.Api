@@ -29,6 +29,12 @@ namespace Lunchinator.Domain.Services
       _groupRecommendation = groupRecommendation;
     }
 
+
+    public Lunch GetLunch(Guid id)
+    {
+      return _uow.Lunches.GetById(id);
+    }
+
     public Lunch CreateLunch(Lunch lunch, SearchParameters searchParameters)
     {
       var businesses = _api.GetBusinessesForEvent(searchParameters);
