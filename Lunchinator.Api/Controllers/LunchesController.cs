@@ -35,7 +35,16 @@ namespace Lunchinator.Api.Controllers
     [HttpPost]
     public HttpResponseMessage Invite(InviteUserModel model)
     {
-      return Request.CreateResponse(HttpStatusCode.OK);
+      try
+      {
+        _lunchService.InviteUser(model.LunchId, model.EmailAddress);
+        return Request.CreateResponse(HttpStatusCode.OK);
+      }
+      catch (Exception ex)
+      {
+        return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex);
+      }
+     
     }
 
     public Business GetRecommendation(Guid lunchId)

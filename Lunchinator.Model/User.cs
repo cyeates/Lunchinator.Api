@@ -23,7 +23,7 @@ namespace Lunchinator.Data.Entities
 
     public User()
     {
-      UserId = new Guid();
+      UserId = Guid.NewGuid();
       Ratings = new List<Rating>();
 
 

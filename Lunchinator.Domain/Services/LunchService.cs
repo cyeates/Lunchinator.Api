@@ -1,4 +1,8 @@
-﻿using Lunchinator.Data.Contracts;
+﻿using System.Configuration;
+using System.Net;
+using System.Net.Mail;
+using Lessthanchad.Email;
+using Lunchinator.Data.Contracts;
 using Lunchinator.Data.Entities;
 
 using Lunchinator.Domain.BusinessApi;
@@ -7,6 +11,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SendGridMail;
+using SendGridMail.Transport;
 
 namespace Lunchinator.Domain.Services
 {
@@ -41,8 +47,20 @@ namespace Lunchinator.Domain.Services
     public void InviteUser(Guid lunchId, string emailAddress)
     {
       var lunch = _uow.Lunches.GetById(lunchId);
-      lunch.Users.Add(new User{LunchId = lunchId, EmailAddress = emailAddress});
+      if (lunch == null)
+        return;
+
+      var user = new User {LunchId = lunchId, EmailAddress = emailAddress};
+      lunch.Users.Add(user);
       _uow.Commit();
+
+      var email = new Lessthanchad.Email.Email(EmailSettings.GetEmailSettings());
+      email.Subject = "You've been invited to lunch!";
+      email.Body = String.Format(ConfigurationManager.AppSettings["AppBaseUrl"] + "#/ratings/{0}", lunch.LunchId.ToString());
+      email.Recipients = new List<string>{emailAddress};
+      email.Send();
+      
+
     }
 
     public Business GetRecommendation(Guid id)

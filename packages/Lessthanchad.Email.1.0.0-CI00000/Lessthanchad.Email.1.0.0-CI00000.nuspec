@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>Lessthanchad.Email</id>
+    <version>1.0.0-CI00000</version>
+    <title>Lessthanchad.Email</title>
+    <authors>Wonka</authors>
+    <owners>Wonka</owners>
+    <iconUrl>https://nugetgallery.blob.core.windows.net/icons/Lessthanchad.Email.1.0.0-CI00000.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Description</description>
+    <summary>Description</summary>
+    <copyright>Copyright ©  2014</copyright>
+    <dependencies>
+      <dependency id="Microsoft.Bcl.Async" version="1.0.165" />
+      <dependency id="Microsoft.Net.Http" version="2.2.18" />
+    </dependencies>
+  </metadata>
+</package>
