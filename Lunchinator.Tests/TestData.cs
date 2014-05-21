@@ -45,12 +45,12 @@ namespace Lunchinator.Tests
                                    FullName = "Lisa Rose",
                                    Ratings = new List<Rating>
                                                  {
-                                                     new Rating {BusinessId="Lady in the Water", UserRating=2.5},
-                                                     new Rating {BusinessId="Snakes on a Plane", UserRating=3.5},
-                                                     new Rating {BusinessId="Just My Luck", UserRating=3.0},
-                                                     new Rating {BusinessId="Superman Returns", UserRating=3.5},
-                                                     new Rating {BusinessId="You, Me and Dupree", UserRating=2.5},
-                                                     new Rating {BusinessId="The Night Listener", UserRating=3.0}
+                                                     new Rating {RestaurantId="Lady in the Water", UserRating=2.5},
+                                                     new Rating {RestaurantId="Snakes on a Plane", UserRating=3.5},
+                                                     new Rating {RestaurantId="Just My Luck", UserRating=3.0},
+                                                     new Rating {RestaurantId="Superman Returns", UserRating=3.5},
+                                                     new Rating {RestaurantId="You, Me and Dupree", UserRating=2.5},
+                                                     new Rating {RestaurantId="The Night Listener", UserRating=3.0}
                                                  }
 
                                },
@@ -60,12 +60,12 @@ namespace Lunchinator.Tests
                                    FullName = "Gene Seymour",
                                    Ratings = new List<Rating>
                                                  {
-                                                     new Rating {BusinessId="Lady in the Water", UserRating=3.0},
-                                                     new Rating {BusinessId="Snakes on a Plane", UserRating=3.5},
-                                                     new Rating {BusinessId="Just My Luck", UserRating=1.5},
-                                                     new Rating {BusinessId="Superman Returns", UserRating=5.0},
-                                                     new Rating {BusinessId="The Night Listener", UserRating=3.0},
-                                                     new Rating {BusinessId="You, Me and Dupree", UserRating=3.5}
+                                                     new Rating {RestaurantId="Lady in the Water", UserRating=3.0},
+                                                     new Rating {RestaurantId="Snakes on a Plane", UserRating=3.5},
+                                                     new Rating {RestaurantId="Just My Luck", UserRating=1.5},
+                                                     new Rating {RestaurantId="Superman Returns", UserRating=5.0},
+                                                     new Rating {RestaurantId="The Night Listener", UserRating=3.0},
+                                                     new Rating {RestaurantId="You, Me and Dupree", UserRating=3.5}
                                                  }
                                },
                            new User
@@ -74,10 +74,10 @@ namespace Lunchinator.Tests
                                    FullName = "Michael Phillips",
                                    Ratings = new List<Rating>
                                                  {
-                                                     new Rating {BusinessId="Lady in the Water", UserRating= 2.5},
-                                                     new Rating {BusinessId="Snakes on a Plane", UserRating= 3.0},
-                                                     new Rating {BusinessId="Superman Returns", UserRating= 3.5},
-                                                     new Rating {BusinessId="The Night Listener", UserRating= 4.0}
+                                                     new Rating {RestaurantId="Lady in the Water", UserRating= 2.5},
+                                                     new Rating {RestaurantId="Snakes on a Plane", UserRating= 3.0},
+                                                     new Rating {RestaurantId="Superman Returns", UserRating= 3.5},
+                                                     new Rating {RestaurantId="The Night Listener", UserRating= 4.0}
                                                  }
                                },
                         new User
@@ -86,11 +86,11 @@ namespace Lunchinator.Tests
                                 FullName = "Claudia Puig",
                                 Ratings = new List<Rating>
                                               {
-                                                  new Rating  {BusinessId="Snakes on a Plane", UserRating= 3.5},
-                                                  new Rating {BusinessId="Just My Luck", UserRating= 3.0},
-                                                  new Rating {BusinessId="The Night Listener", UserRating= 4.5},
-                                                  new Rating {BusinessId="Superman Returns", UserRating= 4.0},
-                                                  new Rating {BusinessId="You, Me and Dupree", UserRating= 2.5}
+                                                  new Rating  {RestaurantId="Snakes on a Plane", UserRating= 3.5},
+                                                  new Rating {RestaurantId="Just My Luck", UserRating= 3.0},
+                                                  new Rating {RestaurantId="The Night Listener", UserRating= 4.5},
+                                                  new Rating {RestaurantId="Superman Returns", UserRating= 4.0},
+                                                  new Rating {RestaurantId="You, Me and Dupree", UserRating= 2.5}
                                                   
                                               }
                             },
@@ -101,12 +101,12 @@ namespace Lunchinator.Tests
                                 FullName = "Mick LaSalle",
                                 Ratings = new List<Rating>
                                               {
-                                                  new Rating {BusinessId="Lady in the Water", UserRating= 3.0},
-                                                  new Rating {BusinessId="Snakes on a Plane", UserRating= 4.0},
-                                                  new Rating {BusinessId="Just My Luck", UserRating= 2.0},
-                                                  new Rating {BusinessId="Superman Returns", UserRating= 3.0},
-                                                  new Rating {BusinessId="The Night Listener", UserRating= 3.0},
-                                                  new Rating {BusinessId="You, Me and Dupree", UserRating= 2.0}
+                                                  new Rating {RestaurantId="Lady in the Water", UserRating= 3.0},
+                                                  new Rating {RestaurantId="Snakes on a Plane", UserRating= 4.0},
+                                                  new Rating {RestaurantId="Just My Luck", UserRating= 2.0},
+                                                  new Rating {RestaurantId="Superman Returns", UserRating= 3.0},
+                                                  new Rating {RestaurantId="The Night Listener", UserRating= 3.0},
+                                                  new Rating {RestaurantId="You, Me and Dupree", UserRating= 2.0}
                                                   
                                               }
                             },
@@ -116,11 +116,11 @@ namespace Lunchinator.Tests
                                 FullName = "Jack Matthews",
                                 Ratings = new List<Rating>
                                               {
-                                                  new Rating {BusinessId="Lady in the Water", UserRating= 3.0},
-                                                  new Rating {BusinessId="Snakes on a Plane", UserRating= 4.0},
-                                                  new Rating {BusinessId="The Night Listener", UserRating= 3.0},
-                                                  new Rating {BusinessId="Superman Returns", UserRating= 5.0},
-                                                  new Rating {BusinessId="You, Me and Dupree", UserRating= 3.5},
+                                                  new Rating {RestaurantId="Lady in the Water", UserRating= 3.0},
+                                                  new Rating {RestaurantId="Snakes on a Plane", UserRating= 4.0},
+                                                  new Rating {RestaurantId="The Night Listener", UserRating= 3.0},
+                                                  new Rating {RestaurantId="Superman Returns", UserRating= 5.0},
+                                                  new Rating {RestaurantId="You, Me and Dupree", UserRating= 3.5},
                                                 
                                                   
                                               }
@@ -131,9 +131,9 @@ namespace Lunchinator.Tests
                                  FullName = "Toby",
                                  Ratings = new List<Rating>
                                               {
-                                                  new Rating {BusinessId="Snakes on a Plane", UserRating=4.5},
-                                                  new Rating {BusinessId="You, Me and Dupree", UserRating=1.0},
-                                                  new Rating {BusinessId="Superman Returns", UserRating=4.0}
+                                                  new Rating {RestaurantId="Snakes on a Plane", UserRating=4.5},
+                                                  new Rating {RestaurantId="You, Me and Dupree", UserRating=1.0},
+                                                  new Rating {RestaurantId="Superman Returns", UserRating=4.0}
                                                  
                                                 
                                                   

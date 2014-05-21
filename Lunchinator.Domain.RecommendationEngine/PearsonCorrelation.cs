@@ -52,9 +52,9 @@ namespace Lunchinator.Domain
 
             foreach (var rating in p1.Ratings)
             {
-                if (p2.ContainsRating(rating.BusinessId))
+                if (p2.ContainsRating(rating.RestaurantId))
                 {
-                    mutuallyRatedItems[rating.BusinessId] = 1;
+                    mutuallyRatedItems[rating.RestaurantId] = 1;
                 }
             }
 

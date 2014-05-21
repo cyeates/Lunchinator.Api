@@ -50,11 +50,11 @@ namespace Lunchinator.Domain.Services
 
     }
 
-    public void InviteUser(Guid lunchId, string emailAddress)
+    public User InviteUser(Guid lunchId, string emailAddress)
     {
       var lunch = _uow.Lunches.GetById(lunchId);
-      if (lunch == null)
-        return;
+      if(lunch == null)
+        throw new Exception(String.Format("LunchId {0} does not exisit.", lunchId.ToString()));
 
       var user = new User {LunchId = lunchId, EmailAddress = emailAddress};
       lunch.Users.Add(user);
@@ -65,7 +65,8 @@ namespace Lunchinator.Domain.Services
       email.Body = String.Format(ConfigurationManager.AppSettings["AppBaseUrl"] + "#/ratings/{0}", lunch.LunchId.ToString());
       email.Recipients = new List<string>{emailAddress};
       email.Send();
-      
+
+      return user;
 
     }
 

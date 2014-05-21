@@ -21,27 +21,29 @@ namespace Lunchinator.Domain.Services
           return _uow.Users.GetById(id);
         }
 
-        public void SaveRating(Rating rating, Guid userId)
+        public void SaveRatings(IEnumerable<Rating> ratings, Guid userId)
         {
            var user = _uow.Users.GetById(userId);
-           var existingRating = user.Ratings.FirstOrDefault(r => r.BusinessId == rating.BusinessId);
-           if (existingRating != null)
-           {
-             existingRating.UserRating = rating.UserRating;
-           }
-           else
-           {
-             user.Ratings.Add(rating);
-           }
-           
-           _uow.Commit();
+          foreach (var rating in ratings)
+          {
+            var existingRating = user.Ratings.FirstOrDefault(r => r.RestaurantId == rating.RestaurantId);
+            if (existingRating != null)
+            {
+              existingRating.UserRating = rating.UserRating;
+            }
+            else
+            {
+              user.Ratings.Add(rating);
+            }
+          }
+          _uow.Commit();
         }
 
         public IEnumerable<Business> GetBusinessesToRateForEvent(Guid id)
         {
-          var lunch = _uow.Lunches.GetAll().FirstOrDefault(l => l.LunchId == id);
-            return lunch.Businesses.Take(5);
-                       
+          var lunch = _uow.Lunches.GetById(id);
+          return lunch.Businesses.Take(5);
+                     
         }
 
         

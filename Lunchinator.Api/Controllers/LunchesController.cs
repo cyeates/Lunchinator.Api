@@ -26,11 +26,25 @@ namespace Lunchinator.Api.Controllers
     {
       var lunch =  _lunchService.GetLunch(new Guid(id));
       var users = new List<UserModel>();
-      lunch.Users.ForEach(u => users.Add(new UserModel {EmailAddress = u.EmailAddress}));
+      lunch.Users.ForEach(u => users.Add(new UserModel { EmailAddress = u.EmailAddress }));
+
+      var businesses = new List<RestaurantModel>();
+      lunch.Businesses.ForEach(b => businesses.Add(new RestaurantModel
+      {
+        RestaurantId = b.Id,
+        Name = b.Name,
+        Address1 = b.Address1,
+        Address2 = b.Address2,
+        ImageUrl = b.ImageUrl,
+        Rating = b.Rating,
+        Url = b.Url
+      }));
+     
       var model= new LunchModel
       {
         LunchId = lunch.LunchId.ToString(),
-        Users = users
+        Users = users,
+        Restaurants = businesses
       };
 
       return model;
@@ -55,8 +69,8 @@ namespace Lunchinator.Api.Controllers
     {
       try
       {
-        _lunchService.InviteUser(model.LunchId, model.EmailAddress);
-        return Request.CreateResponse(HttpStatusCode.OK);
+        var user = _lunchService.InviteUser(model.LunchId, model.EmailAddress);
+        return Request.CreateResponse(HttpStatusCode.OK, user.UserId.ToString());
       }
       catch (Exception ex)
       {

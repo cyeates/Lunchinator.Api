@@ -31,13 +31,13 @@ namespace Lunchinator.Data.Entities
 
     public double GetRating(string businessId)
     {
-      var rating = Ratings.FirstOrDefault(r => r.BusinessId == businessId);
+      var rating = Ratings.FirstOrDefault(r => r.RestaurantId == businessId);
       return rating != null ? rating.UserRating : 0;
     }
 
     public bool ContainsRating(string businessId)
     {
-      return Ratings.FirstOrDefault(r => r.BusinessId == businessId) != null;
+      return Ratings.FirstOrDefault(r => r.RestaurantId == businessId) != null;
     }
 
   }

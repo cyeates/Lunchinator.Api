@@ -39,11 +39,11 @@ namespace Lunchinator.Domain
 
                 //only get recommendations for items the person has not rated yet
                 //foreach (var key in user.Ratings.Where(key => !person.ContainsRating(key)  || person.Ratings[key] == 0))
-                foreach(var rating in user.Ratings.Where(r => !person.ContainsRating(r.BusinessId) || person.GetRating(r.BusinessId) == 0))
+                foreach(var rating in user.Ratings.Where(r => !person.ContainsRating(r.RestaurantId) || person.GetRating(r.RestaurantId) == 0))
                 {
 
 
-                    string key = rating.BusinessId;
+                    string key = rating.RestaurantId;
 
                     if (!totals.ContainsKey(key))
                     {

@@ -8,12 +8,18 @@ using System.Threading.Tasks;
 
 namespace Lunchinator.Data.Entities
 {
-    public class Rating
-    {
-        [Key, Column(Order=0)]
-        public Guid UserId { get; set; }
-        [Key, Column(Order=1)]
-        public string BusinessId { get; set; }
-        public double UserRating { get; set; }
-    }
+  public class Rating
+  {
+    [Key]
+    public int RatingId { get; set; }
+   
+    public Guid UserId { get; set; }
+
+    public string RestaurantId { get; set; }
+    public double UserRating { get; set; }
+
+    [ForeignKey("UserId")]
+    public User User { get; set; }
+
+  }
 }
